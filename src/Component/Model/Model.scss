@@ -1,0 +1,22 @@
+.model {
+   position: relative !important;
+   .model-glasses {
+      position: absolute;
+      left: 23%;
+      right: 0;
+      top: 24%;
+      img {
+         opacity: 0.9;
+         width: 70%;
+      }
+   }
+   .glass-infor {
+      background: rgb(248, 104, 104);
+      border-radius: 16px;
+      padding: 5%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0%;
+   }
+}

@@ -1,5 +1,8 @@
 import React from 'react';
 import './BaiTapThuKinh.scss';
+import GlassList from './GlassList/GlassList';
+import Model from './Model/Model';
+import { useState } from 'react';
 const BaiTapThuKinh = () => {
    const glasses = [
       {
@@ -66,16 +69,29 @@ const BaiTapThuKinh = () => {
          desc: 'Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ',
       },
    ];
+
+   const [glass, setGlass] = useState({});
+
+   const changeGlass = (glassToChange) => {
+      glasses.map((item) => {
+         if (item.id === glassToChange.id) {
+            return glassToChange;
+         }
+      });
+      setGlass(glassToChange);
+   };
+
    return (
       <div className='main'>
-         <img
-            className='bg-image'
-            src='./glassesImage/background.jpg'
-            alt=''
-            srcset=''
-         />
          <div className='container'>
             <h1 className='text-center'>Try Glasses App Online</h1>
+            <div className='row mx-auto my-5'>
+               <GlassList
+                  glasses={glasses}
+                  changeGlass={changeGlass}
+               />
+               <Model glass={glass} />
+            </div>
          </div>
       </div>
    );
