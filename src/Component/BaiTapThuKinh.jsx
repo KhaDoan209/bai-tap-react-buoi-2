@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './BaiTapThuKinh.scss';
 const BaiTapThuKinh = () => {
    const glasses = [
       {
@@ -66,7 +66,19 @@ const BaiTapThuKinh = () => {
          desc: 'Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ',
       },
    ];
-   return <div> Bai Tap Thu Kinh</div>;
+   return (
+      <div className='main'>
+         <img
+            className='bg-image'
+            src='./glassesImage/background.jpg'
+            alt=''
+            srcset=''
+         />
+         <div className='container'>
+            <h1 className='text-center'>Try Glasses App Online</h1>
+         </div>
+      </div>
+   );
 };
 
 export default BaiTapThuKinh;
