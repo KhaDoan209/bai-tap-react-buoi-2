@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import BaiTapThuKinh from './Component/BaiTapThuKinh';
+import BaiTapThuKinh from './components/BaiTapThuKinh';
 
 function App() {
    return (

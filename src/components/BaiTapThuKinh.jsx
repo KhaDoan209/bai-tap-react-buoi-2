@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './BaiTapThuKinh.scss';
-import GlassList from './GlassList/GlassList';
+import GLassList from './GlassList/GLassList';
 import Model from './Model/Model';
-import { useState } from 'react';
-const BaiTapThuKinh = () => {
-   const glasses = [
+export default class BaiTapThuKinh extends Component {
+   glasses = [
       {
          id: 1,
          price: 30,
@@ -69,32 +68,32 @@ const BaiTapThuKinh = () => {
          desc: 'Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ',
       },
    ];
+   state = { glassInfor: {} };
 
-   const [glass, setGlass] = useState({});
-
-   const changeGlass = (glassToChange) => {
-      glasses.map((item) => {
+   changeGlass = (glassToChange) => {
+      this.glasses.map((item) => {
          if (item.id === glassToChange.id) {
             return glassToChange;
          }
       });
-      setGlass(glassToChange);
+      console.log(glassToChange);
+      this.setState({ glassInfor: glassToChange });
    };
-
-   return (
-      <div className='main'>
-         <div className='container'>
-            <h1 className='text-center'>Try Glasses App Online</h1>
-            <div className='row mx-auto my-5'>
-               <GlassList
-                  glasses={glasses}
-                  changeGlass={changeGlass}
-               />
-               <Model glass={glass} />
+   
+   render() {
+      return (
+         <div className='main'>
+            <div className='container'>
+               <h1 className='text-center'>Try Glasses App Online</h1>
+               <div className='row mx-auto my-5'>
+                  <GLassList
+                     glasses={this.glasses}
+                     changeGlass={this.changeGlass}
+                  />
+                  <Model glass={this.state.glassInfor} />
+               </div>
             </div>
          </div>
-      </div>
-   );
-};
-
-export default BaiTapThuKinh;
+      );
+   }
+}
